@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Text } from '@visx/text';
 import { scaleLog } from '@visx/scale';
 import Wordcloud from '@visx/wordcloud/lib/Wordcloud';
-import wordData from './words.json';
+import wordData from './Words.json';
 
 
 interface WordCloudProps {
