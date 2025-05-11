@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { Text } from '@visx/text';
 import { scaleLog } from '@visx/scale';
 import Wordcloud from '@visx/wordcloud/lib/Wordcloud';
+import wordData from './words.json';
 
 
-interface ExampleProps {
+interface WordCloudProps {
   width: number;
   height: number;
   showControls?: boolean;
@@ -17,8 +18,8 @@ export interface WordData {
 
 const colors = ['#143059', '#2F6B9A', '#82a6c2'];
 
-function wordFreq(text: string): WordData[] {
-  const words: string[] = text.replace(/\./g, '').split(/\s/);
+function wordFreq(): WordData[] {
+  const words: string[] = JSON.parse(JSON.stringify(wordData));
   const freqMap: Record<string, number> = {};
 
   for (const w of words) {
@@ -34,18 +35,18 @@ function getRotationDegree() {
   return rand * degree;
 }
 
-const words = wordFreq("Java AWS SpringBoot Angular GoLang Rust React IAM Lambda ECS Docker S3 DynamoDB Cloudwatch Cloudfront Cognito StepFunction Route53");
+const words = wordFreq();
 
 const fontScale = scaleLog({
   domain: [Math.min(...words.map((w) => w.value)), Math.max(...words.map((w) => w.value))],
-  range: [10, 80],
+  range: [5, 50],
 });
 const fontSizeSetter = (datum: WordData) => fontScale(datum.value);
-const fixedValueGenerator = () => 0.5;
+const fixedValueGenerator = () => 0.2;
 
 type SpiralType = 'archimedean' | 'rectangular';
 
-export default function Example({ width, height }: ExampleProps) {
+export default function WordClouds({ width, height }: WordCloudProps) {
   const [spiralType] = useState<SpiralType>('archimedean');
   const [withRotation] = useState(false);
 
@@ -56,8 +57,8 @@ export default function Example({ width, height }: ExampleProps) {
         width={width}
         height={height}
         fontSize={fontSizeSetter}
-        font={'Sans-serif'}
-        padding={8}
+        font={'Impact'}
+        padding={2}
         spiral={spiralType}
         rotate={withRotation ? getRotationDegree : 0}
         random={fixedValueGenerator}
