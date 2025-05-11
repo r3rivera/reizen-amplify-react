@@ -4,6 +4,8 @@
 //import { ChevronRightIcon } from '@heroicons/react/20/solid';
 //const client = generateClient<Schema>();
 
+import Example from "./components/hero/Example";
+
 function App() {
   // const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
  /*
@@ -64,14 +66,8 @@ function App() {
         </div>
         <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:mt-0 lg:mr-0 lg:ml-10 lg:max-w-none lg:flex-none xl:ml-32">
           <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
-            <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-gray-900/10 ring-inset lg:-m-4 lg:rounded-2xl lg:p-4">
-              <img
-                alt="App screenshot"
-                src="https://tailwindcss.com/plus-assets/img/component-images/project-app-screenshot.png"
-                width={2432}
-                height={1442}
-                className="w-[76rem] rounded-md shadow-2xl ring-1 ring-gray-900/10"
-              />
+            <div className="-m-2 rounded-xl ring-inset lg:-m-4 lg:rounded-2xl lg:p-4">
+              <Example height={600} width={800} />
             </div>
           </div>
         </div>
