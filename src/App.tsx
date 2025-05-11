@@ -40,17 +40,16 @@ function App() {
       <div className="mx-auto max-w-7xl px-6 pt-10 pb-24 sm:pb-32 lg:flex lg:px-8 lg:py-40">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
           <img
-            alt="Your Company"
-            src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
+            alt="R2 Rivera"
+            src="R2Logo.jpg"
             className="h-11"
           />
-          
 
           <h1 className="mt-10 text-5xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-7xl">
             R2 Rivera
           </h1>
           <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
-            Java + Angular Developer | AWS Certified Solutions Architect
+            Full Stack Software Engineer | AWS Certified Solutions Architect | Mentor
           </p>
           <div className="mt-10 flex items-center gap-x-6">
             <a
