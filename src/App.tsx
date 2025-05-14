@@ -3,7 +3,7 @@
 //import { generateClient } from "aws-amplify/data";
 //import { ChevronRightIcon } from '@heroicons/react/20/solid';
 //const client = generateClient<Schema>();
-
+import Logo from "./components/shared/Logo.tsx";
 import WordClouds from "./components/hero/WordClouds";
 
 function App() {
@@ -39,11 +39,7 @@ function App() {
       </svg>
       <div className="mx-auto max-w-7xl px-6 pt-10 pb-24 sm:pb-32 lg:flex lg:px-8 lg:py-40">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
-          <img
-            alt="R2 Rivera"
-            src="R2Logo.jpg"
-            className="h-11"
-          />
+          <Logo altName="R2 Rivera" sourceUrl="/R2Logo.jpg"/>
 
           <h1 className="mt-10 text-5xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-7xl">
             R2 Rivera
