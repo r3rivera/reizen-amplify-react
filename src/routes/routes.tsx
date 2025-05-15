@@ -1,5 +1,6 @@
 import {createBrowserRouter} from "react-router";
 import App from "../App";
+import ControlPanel from "../pages/ControlPanel";
 
 const router = createBrowserRouter([
     {
@@ -7,8 +8,8 @@ const router = createBrowserRouter([
         element: <App/>,
     },
     {
-        path: "guard",
-        element: <div>Login</div>
+        path: "control-panel",
+        element: <ControlPanel/>
     },
     {
         path: "*",

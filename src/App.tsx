@@ -39,7 +39,7 @@ function App() {
       </svg>
       <div className="mx-auto max-w-7xl px-6 pt-10 pb-24 sm:pb-32 lg:flex lg:px-8 lg:py-40">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
-          <Logo altName="R2 Rivera" sourceUrl="/R2Logo.jpg"/>
+          <Logo altName="R2 Rivera" sourceUrl="/R2Logo.jpg" targetUrl="/control-panel"/>
 
           <h1 className="mt-10 text-5xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-7xl">
             R2 Rivera
