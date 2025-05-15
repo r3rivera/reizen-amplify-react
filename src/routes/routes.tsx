@@ -1,6 +1,8 @@
 import {createBrowserRouter} from "react-router";
 import App from "../App";
-import ControlPanel from "../pages/ControlPanel";
+import ControlPanel from "../pages/private/ControlPanel";
+import Dashboard from "../pages/private/DashBoard";
+import Inbox from "../pages/private/Inbox";
 
 const router = createBrowserRouter([
     {
@@ -9,7 +11,21 @@ const router = createBrowserRouter([
     },
     {
         path: "control-panel",
-        element: <ControlPanel/>
+        element: <ControlPanel/>,
+        children:[
+            {
+                path: 'dashboard',
+                element: <Dashboard/>
+            },
+            {
+                path: 'inbox',
+                element: <Inbox/>
+            },
+            {
+                path: '',
+                element: <Dashboard/>
+            }
+        ]
     },
     {
         path: "*",
