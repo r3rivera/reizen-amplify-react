@@ -8,13 +8,17 @@ interface LogoParm{
 
 const Logo = ({altName, sourceUrl}:LogoParm) =>{
     let navigate = useNavigate();
-    const onNavClick = () =>{
-        navigate("/guard");
+
+    const onNavClick = (event: React.MouseEvent<HTMLAnchorElement>) =>{
+        if(event.ctrlKey && event.shiftKey){
+            navigate("/guard");
+        }
     };
 
     return (
-        <img alt={altName} src={sourceUrl} className="h-11" onClick={() => onNavClick()}/>
+        <a onClick={onNavClick}>
+            <img alt={altName} src={sourceUrl} className="h-11" />
+        </a>
     )
-
 };
 export default Logo;
