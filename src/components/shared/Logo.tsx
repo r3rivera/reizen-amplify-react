@@ -4,14 +4,15 @@ import { useNavigate } from "react-router";
 interface LogoParm{
     altName: string,
     sourceUrl: string
-    targetUrl: string
+    targetUrl: string,
+    isClickable: boolean
 }
 
-const Logo = ({altName, sourceUrl, targetUrl}:LogoParm) =>{
+const Logo = ({altName, sourceUrl, targetUrl, isClickable}:LogoParm) =>{
     let navigate = useNavigate();
 
     const onNavClick = (event: React.MouseEvent<HTMLAnchorElement>) =>{
-        if(event.ctrlKey && event.shiftKey){
+        if(isClickable && event.ctrlKey && event.shiftKey){
             navigate(targetUrl);
         }
     };
