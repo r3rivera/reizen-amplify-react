@@ -1,7 +1,10 @@
 import { Outlet } from "react-router";
+import { useEffect, useState } from "react";
 import { Authenticator, Button, Heading, Text, useAuthenticator, useTheme, View } from '@aws-amplify/ui-react';
-import '@aws-amplify/ui-react/styles.css';
 import Logo from "../../components/shared/Logo";
+import { fetchUserAttributes } from "aws-amplify/auth";
+import '@aws-amplify/ui-react/styles.css';
+
 
 const ControlPanel = () =>{
 
@@ -187,13 +190,19 @@ const ControlPanel = () =>{
         },
       };
       
-      const formFields = {
+    const formFields = {
         signIn: {
           username: {
             placeholder: 'Enter your email padi',
           },
         },
         signUp: {
+          name: {
+            label: 'Full Name:',
+            placeholder: 'Enter your Name:',
+            isRequired: true,
+            order: 3,
+          },
           password: {
             label: 'Password:',
             placeholder: 'Enter your Password:',
@@ -250,12 +259,28 @@ const ControlPanel = () =>{
           },
         },
       };
+    
+    const [name, setName] = useState('');
+    useEffect( () => {
+      const loadUserAttributes = async () => {
+        try{
+          const attributes = await fetchUserAttributes();
+          console.log(attributes);
+          setName(attributes.name || attributes.email || 'User');
+        }catch(err){
+          //console.error("Error fetching user!");
+        }
+      };
+      loadUserAttributes();
+    },[]);
+
+
 
     return (
     <Authenticator formFields={formFields} components={components}>
-        {({ signOut, user }) => (
+        {({ signOut }) => (
         <div>
-            <h1>In Control Panel {user?.username}</h1>
+            <h1>In Control Panel {name}</h1>
             <button onClick={signOut}>Sign out</button>
             <Outlet/>
         </div>
