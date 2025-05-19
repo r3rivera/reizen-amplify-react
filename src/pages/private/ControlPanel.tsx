@@ -1,9 +1,10 @@
 import { Outlet } from "react-router";
 import { useEffect, useState } from "react";
 import { Authenticator, Button, Heading, Text, useAuthenticator, useTheme, View } from '@aws-amplify/ui-react';
-import Logo from "../../components/shared/Logo";
+import ClickLogo from "../../components/shared/ClickLogo";
 import { fetchUserAttributes } from "aws-amplify/auth";
 import '@aws-amplify/ui-react/styles.css';
+import AppHeader from "../../components/navigation/AppHeader";
 
 
 const ControlPanel = () =>{
@@ -14,7 +15,7 @@ const ControlPanel = () =>{
       
           return (
             <View textAlign="center" padding={tokens.space.large}>
-              <Logo altName="R2 Rivera" sourceUrl="/R2Logo.jpg" targetUrl="/control-panel" isClickable={false}/>
+              <ClickLogo altName="R2 Rivera" sourceUrl="/R2Logo.jpg" targetUrl="/control-panel" isClickable={false} className="h-11"/>
             </View>
           );
         },
@@ -245,7 +246,7 @@ const ControlPanel = () =>{
             isRequired: false,
           },
         },
-        confirmSignIn: {
+        confirmSignClickLogoIn: {
           confirmation_code: {
             label: 'New Label',
             placeholder: 'Enter your Confirmation Code:',
@@ -279,11 +280,12 @@ const ControlPanel = () =>{
     return (
     <Authenticator formFields={formFields} components={components}>
         {({ signOut }) => (
-        <div>
+          <>
+            <AppHeader/>
             <h1>In Control Panel {name}</h1>
             <button onClick={signOut}>Sign out</button>
             <Outlet/>
-        </div>
+          </>
         )}
     </Authenticator>
     );
