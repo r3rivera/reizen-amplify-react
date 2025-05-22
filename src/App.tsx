@@ -14,7 +14,7 @@ function App() {
               </div>
             </span>
 
-            <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
+            <p className="mt-2 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
                 Full Stack Software Engineer | AWS Certified Solutions Architect 
             </p>
             <div>

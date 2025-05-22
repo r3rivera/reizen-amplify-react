@@ -5,7 +5,7 @@ import { generateClient } from "aws-amplify/data";
 const client = generateClient<Schema>();
 
 const Inbox = () =>{
-    const [inboxItem, setInboxItems] = useState<Array<Schema["InboxItems"]["type"]>>([]);
+    const [_ , setInboxItems] = useState<Array<Schema["InboxItems"]["type"]>>([]);
 
     useEffect(() => {
         client.models.InboxItems.observeQuery().subscribe({
